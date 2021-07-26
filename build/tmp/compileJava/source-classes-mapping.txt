@@ -1,0 +1,6 @@
+TestCommand.java
+ TestCommand
+BrigadierJdaParser.java
+ BrigadierJdaParser
+Main.java
+ Main

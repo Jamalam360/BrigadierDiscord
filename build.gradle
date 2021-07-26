@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'com.com.jamalam360'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url "https://libraries.minecraft.net"
+    }
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.mojang:brigadier:1.0.18'
+    implementation("net.dv8tion:JDA:4.3.0_298")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
