@@ -8,6 +8,8 @@ This project is very early on in development and needs lots of work. Please repo
 
 For instructions please view the [wiki page](https://jamalam360.github.io/BrigadierDiscord/)
 
+You can also view the [test bot](https://github.com/Jamalam360/BrigadierDiscord/blob/main/src/test/java/BrigadierDiscordTest.java)
+
 ## Ackknowledgements 
 
 [This](https://github.com/romangraef/brigadier-jda-discord) GitHub repo for giving me the idea
