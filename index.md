@@ -62,5 +62,9 @@ private static void registerTestCommands() {
 The above example creates three commands:
 
 - `jda` sends a message saying 'Test Message!'
-- `jda echo <a string>` sends a message saying 'You said '<a string>''
-- `jda double <a number>` sends a message saying '<double a number>'
+- `jda echo <a string>` sends a message saying 'You said '(a string)''
+- `jda double <a number>` sends a message saying '(double a number)'
+  
+Note: I wouldn't recommend using lambdas as I have done here, it is clener to have each command be a class implementing `Command<Message>` and overriding the `run` method
+
+The `context` parameter has many useful methods, but the most useful are `getArgument` and `getSource`. `getSource` returns a JDA message that you can use to send responses.
