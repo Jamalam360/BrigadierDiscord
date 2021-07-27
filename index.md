@@ -1,24 +1,19 @@
-## Welcome to 
+# Welcome to BrigadierDiscord
 
-```markdown
-Syntax highlighted code block
+BrigadierDiscord allows you to use [Mojangs Brigadier Commnad Parser](https://github.com/Mojang/brigadier) with discord bots.
 
-# Header 1
-## Header 2
-### Header 3
+## Downloading
 
-- Bulleted
-- List
+BrigadierDiscord uses [jitpack](jitpack.io) to distribute files. To depend on it via gradle:
 
-1. Numbered
-2. List
+```gradle
+repositories {
+  maven { url 'https://jitpack.io' }
+}
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+dependencies {
+  implementation 'com.github.Jamalam360:BrigadierDiscord:Tag'
+}
 ```
 
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Replace `Tag` with the version you want (you probably want `SNAPSHOT`), you can find the versions [here](https://jitpack.io/#Jamalam360/BrigadierDiscord)
