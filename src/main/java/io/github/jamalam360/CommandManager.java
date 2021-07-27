@@ -1,4 +1,4 @@
-package com.jamalam360;
+package io.github.jamalam360;
 
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;

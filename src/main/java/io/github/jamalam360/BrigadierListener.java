@@ -1,4 +1,4 @@
-package com.jamalam360;
+package io.github.jamalam360;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.ParseResults;
@@ -11,10 +11,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * @author Jamalam360
  */
-public class BrigadierJdaParser extends ListenerAdapter {
+public class BrigadierListener extends ListenerAdapter {
     private final CommandDispatcher<Message> commandDispatcher;
 
-    public BrigadierJdaParser(CommandDispatcher<Message> dispatcher) {
+    public BrigadierListener(CommandDispatcher<Message> dispatcher) {
         this.commandDispatcher = dispatcher;
     }
 

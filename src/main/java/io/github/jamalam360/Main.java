@@ -1,4 +1,4 @@
-package com.jamalam360;
+package io.github.jamalam360;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.dv8tion.jda.api.JDA;
@@ -7,8 +7,8 @@ import net.dv8tion.jda.api.entities.Message;
 
 import javax.security.auth.login.LoginException;
 
-import static com.jamalam360.CommandManager.argument;
-import static com.jamalam360.CommandManager.literal;
+import static io.github.jamalam360.CommandManager.argument;
+import static io.github.jamalam360.CommandManager.literal;
 import static com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg;
 import static com.mojang.brigadier.arguments.StringArgumentType.greedyString;
 
@@ -21,7 +21,7 @@ public class Main {
 
     static {
         try {
-            JDA jda = JDABuilder.createDefault(TOKEN).addEventListeners(new BrigadierJdaParser(COMMAND_DISPATCHER)).build();
+            JDA jda = JDABuilder.createDefault(TOKEN).addEventListeners(new BrigadierListener(COMMAND_DISPATCHER)).build();
         } catch (LoginException e) {
             System.out.println("Failed to login. Ensure you have a bot token in your environment variables.");
             System.exit(0);

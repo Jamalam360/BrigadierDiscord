@@ -1,3 +1,4 @@
+import io.github.jamalam360.BrigadierListener;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -27,7 +28,7 @@ public class BrigadierDiscordTest extends ListenerAdapter {
 
     static {
         try {
-            JDA = JDABuilder.createDefault(TOKEN).addEventListeners(new BrigadierJdaParser(COMMAND_DISPATCHER)).build();
+            JDA = JDABuilder.createDefault(TOKEN).addEventListeners(new BrigadierListener(COMMAND_DISPATCHER)).build();
         } catch (LoginException e) {
             System.out.println("Failed to login. Ensure you have a bot token in your environment variables.");
             System.exit(0);
