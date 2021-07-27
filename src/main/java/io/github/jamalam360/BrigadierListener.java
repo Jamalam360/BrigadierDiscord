@@ -13,20 +13,35 @@ import org.jetbrains.annotations.NotNull;
  */
 public class BrigadierListener extends ListenerAdapter {
     private final CommandDispatcher<Message> commandDispatcher;
+    private final String prefix;
 
     public BrigadierListener(CommandDispatcher<Message> dispatcher) {
         this.commandDispatcher = dispatcher;
+        this.prefix = "";
+    }
+
+    public BrigadierListener(CommandDispatcher<Message> dispatcher, String prefix) {
+        this.commandDispatcher = dispatcher;
+        this.prefix = prefix;
     }
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         String input = event.getMessage().getContentRaw();
-        try {
-            if (!event.getAuthor().isBot()) {
-                ParseResults<Message> results = commandDispatcher.parse(input, event.getMessage());
-                commandDispatcher.execute(results);
+
+        if(input.indexOf(prefix) == 0) {
+            StringBuilder sb = new StringBuilder(input);
+            for (int i = 0; i < prefix.length(); i++) { //Remove prefix so brigadier can parse the command. Done in this way to avoid annoying regex issues
+                sb.deleteCharAt(0);
             }
-        } catch (CommandSyntaxException ignored) {
+
+            try {
+                if (!event.getAuthor().isBot()) {
+                    ParseResults<Message> results = commandDispatcher.parse(sb.toString(), event.getMessage());
+                    commandDispatcher.execute(results);
+                }
+            } catch (CommandSyntaxException ignored) {
+            }
         }
     }
 }
