@@ -9,14 +9,16 @@ BrigadierDiscord uses [jitpack](jitpack.io) to distribute files. To depend on it
 ```gradle
 repositories {
   maven { url 'https://jitpack.io' }
+  maven { url 'https://libraries.minecraft.net' }
 }
 
 dependencies {
   implementation 'com.github.Jamalam360:BrigadierDiscord:Tag'
+  implementation 'com.mojang:brigadier:(the latest version)'
 }
 ```
 
-Replace `Tag` with the version you want (you probably want `SNAPSHOT`), you can find the versions [here](https://jitpack.io/#Jamalam360/BrigadierDiscord)
+Replace `Tag` with the version you want (you probably want `SNAPSHOT`), you can find the versions [here](https://jitpack.io/#Jamalam360/BrigadierDiscord). You can find brigadier versions [here](https://github.com/Mojang/brigadier)
 
 ## Using
 
