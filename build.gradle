@@ -4,7 +4,7 @@ plugins {
     id 'org.cadixdev.licenser' version '0.6.0'
 }
 
-group 'com.github.jamalam360'
+group 'io.github.jamalam360'
 version '0.0.1'
 
 repositories {
@@ -28,4 +28,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'io.github.jamalam360'
+            artifactId = 'library'
+            version = '0.0.2'
+
+            from components.java
+        }
+    }
 }
