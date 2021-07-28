@@ -18,7 +18,7 @@ dependencies {
 }
 ```
 
-Replace `Tag` with the version you want (you probably want `SNAPSHOT`), you can find the versions [here](https://jitpack.io/#Jamalam360/BrigadierDiscord). You can find brigadier versions [here](https://github.com/Mojang/brigadier)
+Replace `Tag` with the version you want, you can find the versions [here](https://jitpack.io/#Jamalam360/BrigadierDiscord). You can find brigadier versions [here](https://github.com/Mojang/brigadier)
 
 ## Using
 
