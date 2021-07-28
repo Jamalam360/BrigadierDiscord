@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'maven-publish'
     id 'org.cadixdev.licenser' version '0.6.0'
 }
 
-group 'com.com.jamalam360'
+group 'io.github.jamalam360'
 version '1.0-SNAPSHOT'
 
 repositories {
