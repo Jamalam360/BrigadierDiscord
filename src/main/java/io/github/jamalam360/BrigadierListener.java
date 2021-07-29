@@ -38,6 +38,7 @@ import org.jetbrains.annotations.NotNull;
 public class BrigadierListener extends ListenerAdapter {
     private final CommandDispatcher<Message> commandDispatcher;
     private final String prefix;
+    private BrigadierDiscordEventListener listener = new BrigadierDiscordEventListener(){}; //Placeholder
 
     public BrigadierListener(CommandDispatcher<Message> dispatcher) {
         this.commandDispatcher = dispatcher;
@@ -49,9 +50,14 @@ public class BrigadierListener extends ListenerAdapter {
         this.prefix = prefix;
     }
 
+    public void addListener(BrigadierDiscordEventListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         String input = event.getMessage().getContentRaw();
+        input = listener.onMessageReceived(input);
 
         if(input.indexOf(prefix) == 0) {
             StringBuilder sb = new StringBuilder(input);
@@ -62,9 +68,13 @@ public class BrigadierListener extends ListenerAdapter {
             try {
                 if (!event.getAuthor().isBot()) {
                     ParseResults<Message> results = commandDispatcher.parse(sb.toString(), event.getMessage());
-                    commandDispatcher.execute(results);
+                    results = listener.onParseFinish(results);
+
+                    int executionResult = commandDispatcher.execute(results);
+                    listener.onExecutionFinish(executionResult);
                 }
-            } catch (CommandSyntaxException ignored) {
+            } catch (CommandSyntaxException e) {
+                listener.onError(e);
             }
         }
     }

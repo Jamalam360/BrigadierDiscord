@@ -66,7 +66,9 @@ public class BrigadierDiscordTest {
 
     static {
         try {
-            JDABuilder.createDefault(TOKEN).addEventListeners(new BrigadierListener(COMMAND_DISPATCHER, "??")).build();
+            BrigadierListener listener = new BrigadierListener(COMMAND_DISPATCHER, "??");
+            listener.addListener(new TestEventListener());
+            JDABuilder.createDefault(TOKEN).addEventListeners(listener).build();
         } catch (Exception e) {
             System.out.println("Failed to login. Ensure you have a bot token in your environment variables.");
             System.exit(0);
